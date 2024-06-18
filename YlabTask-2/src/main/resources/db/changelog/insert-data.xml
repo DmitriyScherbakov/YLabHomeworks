@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        logicalFilePath="db/changelog.xml">
+    <changeSet id="003-insert-data" author="ylab">
+        <!-- Заполнение таблицы users -->
+        <insert tableName="users">
+            <column name="id" valueNumeric="1"/>
+            <column name="username" value="user1"/>
+            <column name="password" value="password1"/>
+            <column name="role" valueNumeric="1"/>
+        </insert>
+        <insert tableName="users">
+            <column name="id" valueNumeric="2"/>
+            <column name="username" value="user2"/>
+            <column name="password" value="password2"/>
+            <column name="role" valueNumeric="2"/>
+        </insert>
+
+        <!-- Заполнение таблицы workouts -->
+        <insert tableName="workouts">
+            <column name="id" valueNumeric="1"/>
+            <column name="date" valueDate="2024-04-25"/>
+            <column name="type" value="running"/>
+            <column name="duration_minutes" valueNumeric="60"/>
+            <column name="calories_burned" valueNumeric="500"/>
+            <column name="additional_info" value="Morning run in the park"/>
+        </insert>
+        <insert tableName="workouts">
+            <column name="id" valueNumeric="2"/>
+            <column name="date" valueDate="2024-04-26"/>
+            <column name="type" value="yoga"/>
+            <column name="duration_minutes" valueNumeric="90"/>
+            <column name="calories_burned" valueNumeric="300"/>
+            <column name="additional_info" value="Yoga class at the gym"/>
+        </insert>
+
+        <!-- Заполнение таблицы training_types -->
+        <insert tableName="training_types">
+            <column name="id" valueNumeric="1"/>
+            <column name="name" value="running"/>
+        </insert>
+        <insert tableName="training_types">
+            <column name="id" valueNumeric="2"/>
+            <column name="name" value="yoga"/>
+        </insert>
+
+        <!-- Заполнение таблицы audit -->
+        <insert tableName="audit">
+            <column name="id" valueNumeric="1"/>
+            <column name="user_id" valueNumeric="1"/>
+            <column name="action" value="User 'user1' logged in"/>
+            <column name="timestamp" valueDate="2024-04-25T08:00:00"/>
+        </insert>
+        <insert tableName="audit">
+            <column name="id" valueNumeric="2"/>
+            <column name="user_id" valueNumeric="2"/>
+            <column name="action" value="User 'user2' created a new workout"/>
+            <column name="timestamp" valueDate="2024-04-26T09:00:00"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: training_diary_homework2
+    environment:
+      POSTGRES_USER: DmitriyScherbakov
+      POSTGRES_PASSWORD: scherbakov
+      POSTGRES_DB: TrainingDiary
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
